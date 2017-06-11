@@ -6,6 +6,7 @@ import com.avaje.ebean.EbeanServerFactory
 import com.avaje.ebean.springsupport.txn.SpringAwareJdbcTransactionManager
 import com.avaje.ebean.config.ServerConfig
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import javax.sql.DataSource
 
 
@@ -13,10 +14,11 @@ import javax.sql.DataSource
  * Created by eduardolopes on 06/06/17.
  */
 
+@Component
 class EbeanFactoryBean: FactoryBean<EbeanServer> {
 
     @Autowired
-    private val dataSource: DataSource? = null
+    lateinit var dataSource: DataSource
 
     val MODELS_PACKAGE = "com.acessibilityguide.api.model"
 
