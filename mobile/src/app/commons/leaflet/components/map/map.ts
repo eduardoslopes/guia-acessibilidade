@@ -46,7 +46,9 @@ export class Map {
     set _markers(markers: QueryList<Marker>) {
         if(markers){
             markers.forEach(marker => {
-                marker.addTo(this.map);
+                if(marker.marker){
+                    marker.addTo(this.map);
+                }
             });
         }
     }

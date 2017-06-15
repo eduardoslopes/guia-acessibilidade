@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cf525f9-568c-432b-81af-b5688f542d38" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/app.html" afterPath="$PROJECT_DIR$/mobile/src/app/app.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/app.ts" afterPath="$PROJECT_DIR$/mobile/src/app/app.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/map/map.ts" afterPath="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/map/map.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/marker/marker.ts" afterPath="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/marker/marker.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -36,8 +35,8 @@
       <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/app/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="62" lean-forward="true" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+            <state relative-caret-position="108">
+              <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -68,9 +67,11 @@
       <file leaf-file-name="map.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/map/map.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="126">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#46#123#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +89,8 @@
       <file leaf-file-name="marker.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/marker/marker.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+            <state relative-caret-position="126">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="e#46#95#0" expanded="true" />
               </folding>
@@ -148,9 +149,9 @@
         <option value="$PROJECT_DIR$/mobile/www/index.html" />
         <option value="$PROJECT_DIR$/mobile/src/assets/leaflet.css" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.css" />
-        <option value="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/map/map.ts" />
-        <option value="$PROJECT_DIR$/mobile/src/app/app.html" />
         <option value="$PROJECT_DIR$/mobile/src/app/app.ts" />
+        <option value="$PROJECT_DIR$/mobile/src/app/app.html" />
+        <option value="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/map/map.ts" />
         <option value="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/marker/marker.ts" />
       </list>
     </option>
@@ -420,8 +421,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mobile/src/app" />
       <recent name="$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/marker" />
+      <recent name="$PROJECT_DIR$/mobile/src/app" />
       <recent name="$PROJECT_DIR$/mobile/www/assets" />
       <recent name="$PROJECT_DIR$/mobile/src/assets" />
       <recent name="$PROJECT_DIR$/mobile/src/assets/images" />
@@ -507,16 +508,16 @@
       <workItem from="1497104392284" duration="208000" />
       <workItem from="1497105893448" duration="1091000" />
       <workItem from="1497456353807" duration="2355000" />
-      <workItem from="1497486164230" duration="10123000" />
+      <workItem from="1497486164230" duration="12067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21102000" />
+    <option name="totallyTimeSpent" value="23046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="741" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3149665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -526,7 +527,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33225808" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -625,7 +626,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
-            <element signature="e#46#123#0" expanded="false" />
+            <element signature="e#46#123#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,26 +913,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/map/map.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/app/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="274" column="26" lean-forward="true" selection-start-line="274" selection-start-column="26" selection-end-line="274" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/app/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="62" lean-forward="true" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -954,6 +939,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/app/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/marker/marker.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -962,10 +955,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/map/map.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/app/commons/leaflet/components/marker/marker.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        <state relative-caret-position="126">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="e#46#95#0" expanded="true" />
           </folding>
