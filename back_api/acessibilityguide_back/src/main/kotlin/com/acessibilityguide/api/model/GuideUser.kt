@@ -14,27 +14,19 @@ import javax.persistence.Table
 class GuideUser: Model() {
 
     @Id
-    private var id: Long? = null
-        get() = field;
-        set(id) {field = id;}
+    var id: Long? = null
 
-    private var name: String? = null
-        get() = field;
-        set(value) {field = value}
+    var name: String? = null
 
     @Column(nullable = false, unique = true)
-    private var cpf: String? = null
-        get() = field;
-        set(value) {field = value}
+    var cpf: String? = null
 
     @Column(nullable = false, unique = true)
-    private var username: String? = null
-        get() = field;
-        set(value) {field = value}
+    var username: String? = null
 
     @Column(nullable = false)
-    private var password: String? = null
-        get() = field;
-        set(value) {field = value}
+    var password: String? = null
+
+    companion object : Model.Find<Long, GuideUser>() { }
 
 }

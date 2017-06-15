@@ -11,38 +11,28 @@ import javax.persistence.*
 class Marker: Model() {
 
     @Id
-    private var id: Long? = null
-        get() = field;
-        set(value) {field = value}
+    var id: Long? = null
 
-    private var name: String? = null
-        get() = field;
-        set(value) {field = value}
+    var name: String? = null
 
-    private var description: String? = null
-        get() = field;
-        set(value) {field = value}
+    var description: String? = null
 
-    private var latitude: Double? = null
-        get() = field;
-        set(value) {field = value}
+    var latitude: Double? = null
 
-    private var longitude: Double? = null
-        get() = field;
-        set(value) {field = value}
+    var longitude: Double? = null
 
     @ManyToOne(optional = false)
-    private var markerType: MarkerType? = null
-        get() = field;
-        set(value) {field = value}
+    var markerType: MarkerType? = null
 
     @ManyToOne(optional = false)
-    private var user: GuideUser? = null
-        get() = field;
-        set(value) {field = value}
+    var user: GuideUser? = null
+
+    @OneToMany(mappedBy = "marker")
+    var comments: List<Comment>? = null
 
     @ManyToMany(mappedBy = "markers")
-    private var acessibilityTypes: List<AcessibilityType>? = null
-        get() = field;
-        set(value) {field = value}
+    var acessibilityTypes: List<AcessibilityType>? = null
+
+    companion object : Model.Find<Long, Marker>() { }
+
 }

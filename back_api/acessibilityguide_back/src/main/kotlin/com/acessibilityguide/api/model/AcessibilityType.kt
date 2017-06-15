@@ -14,20 +14,15 @@ import javax.persistence.Table
 class AcessibilityType: Model() {
 
     @Id
-    private var id: Long? = null
-        get() = field;
-        set(value) {field = value}
+    var id: Long? = null
 
-    private var name: String? = null
-        get() = field;
-        set(value) {field = value}
+    var name: String? = null
 
-    private var another: Boolean? = null
-        get() = field;
-        set(value) {field = value}
+    var another: Boolean? = null
 
     @ManyToMany
-    private var markers: List<Marker>? = null
-        get() = field;
-        set(value) {field = value}
+    var markers: List<Marker>? = null
+
+    companion object : Model.Find<Long, AcessibilityType>() { }
+
 }
