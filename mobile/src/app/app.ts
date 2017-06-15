@@ -10,14 +10,13 @@ export class MyApp {
   lng: number;
   lat2: number;
   lng2: number;
-  iconUrl: string;
-
+  popupContent: string;
   constructor() {
       this.lat = -3.700852;
       this.lng = -38.586988;
       this.lat2 = -3.734680;
       this.lng2 = -38.469289;
-      this.iconUrl = "./assets/images/marker-icon.png"
+      this.popupContent = "<p>Olá!<br />Este é o Guia acessibilidade!!.</p>";
   }
 
   ngOnInit(): void {}

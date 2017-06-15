@@ -13,6 +13,7 @@ export class Marker{
     @Input() lng: number = null;
     @Input() onClick: any = undefined;
     @Input() iconUrl: string = '';
+    @Input() popupcontent: string = '';
     marker: any = null;
     constructor() {
     }
@@ -40,7 +41,11 @@ export class Marker{
     }
 
     addTo(map){
-        this.marker.addTo(map);
+        if(this.popupcontent === "") {
+            this.marker.addTo(map);
+        } else {
+            this.marker.addTo(map).bindPopup(this.popupcontent);
+        }
     }
 
 }
