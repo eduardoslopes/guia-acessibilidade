@@ -12,6 +12,7 @@ export class Map {
     @Input() lat: number = -3.700852;
     @Input() lng: number = -38.586988;
     @Input() zoom: number = 13;
+    @Input() minZoom: number = 5;
     map: L.Map;
     center: any;
 
@@ -27,6 +28,8 @@ export class Map {
         this.map = L.map('map', {
             center: this.center,
             zoom: this.zoom,
+            minZoom: this.minZoom,
+            worldCopyJump: true,
             closePopupOnClick: false,
             attributionControl: false
         });
