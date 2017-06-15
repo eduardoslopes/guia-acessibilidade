@@ -3,12 +3,16 @@
     <div class="center">Guia Acessibilidade</div>
   </ons-toolbar>
 
-  <div class="content" style="padding-top: 35px">
+  <div class="content">
+    <div style="padding: 10px">
+        <google-search> </google-search>
+    </div>
     <leaflet-map [zoom]="28">
         <leaflet-marker [lat]="lat" [lng]="lng"></leaflet-marker>
         <leaflet-marker [lat]="lat2" [lng]="lng2"></leaflet-marker>
     </leaflet-map>
   </div>
+
     <div >
         <ons-fab onclick="callNewMarkerPage()" position="right bottom" >
             <ons-icon icon="md-plus"></ons-icon>
