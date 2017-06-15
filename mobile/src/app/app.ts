@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
-import {onsNotification} from 'angular2-onsenui';
 
 @Component({
   selector: 'app',
   template: require('./app.html'),
-  styles: [require('../assets/leaflet.css')]
+  styles: [require('./../assets/leaflet.css').toString()]
 })
 export class MyApp {
   lat: number;
