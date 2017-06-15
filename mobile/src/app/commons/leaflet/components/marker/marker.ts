@@ -7,6 +7,7 @@ import * as L from 'leaflet';
 @Component({
     selector: 'leaflet-marker',
     template: './marker.html'
+    //templateUrl: './src/assets/images/marker-icon.png'
 })
 export class Marker{
     @Input() lat: number = null;
@@ -23,6 +24,17 @@ export class Marker{
 
     createMarker() {
         if(this.iconUrl === "") {
+
+            let myIcon = L.icon({
+                iconUrl: '/marker-icon.png',
+                iconSize: [38, 95],
+                iconAnchor: [22, 94],
+                popupAnchor: [-3, -76],
+                //shadowUrl: 'my-icon-shadow.png',
+                //shadowSize: [68, 95],
+                //shadowAnchor: [22, 94]
+            });
+
             this.marker = L.marker([this.lat, this.lng]);
         }else {
             let myIcon = L.icon({
