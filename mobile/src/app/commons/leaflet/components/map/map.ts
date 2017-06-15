@@ -6,7 +6,7 @@ import * as L from 'leaflet';
 import { Marker } from '../marker/marker'
 @Component({
     selector: 'leaflet-map',
-    templateUrl: 'map.html',
+    template: require('./map.html'),
 })
 export class Map {
     @Input() lat: number = -3.700852;

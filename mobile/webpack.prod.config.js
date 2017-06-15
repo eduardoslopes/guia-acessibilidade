@@ -9,8 +9,8 @@ try {
   var CopyWebpackPlugin = require(path.join(cordovaNodeModules, 'copy-webpack-plugin'));
   var ProgressBarPlugin = require(path.join(cordovaNodeModules, 'progress-bar-webpack-plugin'));
 
-  var autoprefixer = require(path.join(cordovaNodeModules, 'autoprefixer'));
-  var precss = require(path.join(cordovaNodeModules, 'precss'));
+  var cssnext = require(path.join(cordovaNodeModules, 'postcss-cssnext'));
+  var postcssImport = require(path.join(cordovaNodeModules, 'postcss-import'));
 
 } catch (e) {
   throw new Error('Missing Webpack Build Dependencies.');
@@ -70,16 +70,19 @@ module.exports = {
       test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
       loader: 'file?name=assets/[name].[hash].[ext]'
     }, {
-      test: /\.styl$/,
-      loader: 'style!css!postcss!stylus',
+      test: /\.css$/,
+      include: [
+        path.join(__dirname, 'node_modules', 'onsenui', 'css-components-src', 'src'),
+        path.join(__dirname, 'src')
+      ],
+      loaders: ['css-to-string', ExtractTextPlugin.extract('style', 'css?importLoaders=1&-raw!postcss')]
     }, {
       test: /\.css$/,
-      exclude: path.join(__dirname, 'src', 'app'),
+      exclude: [
+        path.join(__dirname, 'node_modules', 'onsenui', 'css-components-src', 'src'),
+        path.join(__dirname, 'src')
+      ],
       loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-    }, {
-      test: /\.css$/,
-      include: path.join(__dirname, 'src', 'app'),
-      loader: 'raw!postcss'
     }, {
       test: /\.json$/,
       loader: 'json'
@@ -97,7 +100,12 @@ module.exports = {
   },
 
   postcss: function() {
-    return [precss, autoprefixer];
+    return [
+      postcssImport,
+      cssnext({
+        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+      })
+    ]
   },
 
   ts: {

@@ -20,4 +20,8 @@ export class MyApp {
   }
 
   ngOnInit(): void {}
+
+  callNewMarkerPage(): void {
+    //TODO call a page to register new accessible point
+  }
 }

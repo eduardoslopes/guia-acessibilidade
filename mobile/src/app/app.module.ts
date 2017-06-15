@@ -1,8 +1,6 @@
 /**
  * Created by marcosflavio on 6/7/17.
  */
-require('onsenui/stylus/blue-basic-theme.styl');
-require('onsenui/css/onsenui.css');
 
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpModule} from '@angular/http';
