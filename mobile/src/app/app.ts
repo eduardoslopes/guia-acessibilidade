@@ -7,9 +7,17 @@ import {onsNotification} from 'angular2-onsenui';
   styles: [require('./app.css')]
 })
 export class MyApp {
-  constructor() {}
+  lat: number;
+  lng: number;
+  lat2: number;
+  lng2: number;
 
-  alert() {
-    onsNotification.alert('This is an Onsen UI alert notification test.');
+  constructor() {
+      this.lat = -3.700852;
+      this.lng = -38.586988;
+      this.lat2 = -3.734680;
+      this.lng2 = -38.469289;
   }
+
+  ngOnInit(): void {}
 }
