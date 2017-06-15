@@ -78,6 +78,24 @@
 
 		<dependency>
 			<groupId>org.avaje.ebean</groupId>
+			<artifactId>querybean-agent</artifactId>
+			<version>8.1.1</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.avaje.ebeanorm</groupId>
+            <artifactId>avaje-ebeanorm-typequery-generator</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.avaje.ebean</groupId>
+            <artifactId>finder-generator</artifactId>
+            <version>2.1.3</version>
+        </dependency>
+
+		<dependency>
+			<groupId>org.avaje.ebean</groupId>
 			<artifactId>ebean-spring</artifactId>
 			<version>7.1.2</version>
 		</dependency>
@@ -152,6 +170,22 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+            <plugin>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>2.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <tiles>
+                        <!--
+                            Leave out java-compile tile if you already
+                            have the compile plugin defined
+                         -->
+                        <!-- <tile>org.avaje.tile:java-compile:1.1</tile> -->
+                        <tile>org.avaje.tile:ebean-enhancement:1.1</tile>
+                    </tiles>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 

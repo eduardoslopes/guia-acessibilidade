@@ -14,12 +14,9 @@ import javax.persistence.Table
 class MarkerType: Model() {
 
     @Id
-    private var id: Long? = null
-        get() = field;
-        set(value) {field = value}
+    var id: Long? = null
 
-    private var name: String? = null
-        get() = field;
-        set(value) {field = value}
+    var name: String? = null
 
+    companion object : Model.Find<Long, MarkerType>() { }
 }
