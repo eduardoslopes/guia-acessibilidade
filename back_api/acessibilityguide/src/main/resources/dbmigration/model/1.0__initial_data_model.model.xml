@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<migration xmlns="http://ebean-orm.github.io/xml/ns/dbmigration">
+    <changeSet type="apply">
+        <createTable name="acessibility_type" pkName="pk_acessibility_type">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="another" type="boolean"/>
+        </createTable>
+        <createTable name="acessibility_type_marker" pkName="pk_acessibility_type_marker">
+            <column name="acessibility_type_id" type="bigint" notnull="true" primaryKey="true"/>
+            <column name="marker_id" type="bigint" notnull="true" primaryKey="true"/>
+            <foreignKey name="fk_acessibility_type_marker_acessibility_type" columnNames="acessibility_type_id" refColumnNames="id" refTableName="acessibility_type" indexName="ix_acessibility_type_marker_acessibility_type"/>
+            <foreignKey name="fk_acessibility_type_marker_marker" columnNames="marker_id" refColumnNames="id" refTableName="marker" indexName="ix_acessibility_type_marker_marker"/>
+        </createTable>
+        <createTable name="guide_user" pkName="pk_guide_user">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="cpf" type="varchar(255)" notnull="true" unique="uq_guide_user_cpf"/>
+            <column name="username" type="varchar(255)" notnull="true" unique="uq_guide_user_username"/>
+            <column name="password" type="varchar(255)" notnull="true"/>
+        </createTable>
+        <createTable name="marker" pkName="pk_marker">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="latitude" type="double"/>
+            <column name="longitude" type="double"/>
+            <column name="marker_type_id" type="bigint" notnull="true" references="marker_type.id" foreignKeyName="fk_marker_marker_type_id" foreignKeyIndex="ix_marker_marker_type_id"/>
+            <column name="user_id" type="bigint" notnull="true" references="guide_user.id" foreignKeyName="fk_marker_user_id" foreignKeyIndex="ix_marker_user_id"/>
+        </createTable>
+        <createTable name="marker_type" pkName="pk_marker_type">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+</migration>
