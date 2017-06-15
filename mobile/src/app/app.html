@@ -3,10 +3,17 @@
     <div class="center">Guia Acessibilidade</div>
   </ons-toolbar>
 
-  <div class="content">
-    <ons-list>
-      <ons-list-header>Dialog Sample</ons-list-header>
-      <ons-list-item (click)="alert()">Alert</ons-list-item>
-    </ons-list>
+  <div class="content" style="padding-top: 35px">
+    <leaflet-map [zoom]="28">
+        <leaflet-marker [lat]="lat" [lng]="lng"></leaflet-marker>
+        <leaflet-marker [lat]="lat2" [lng]="lng2"></leaflet-marker>
+    </leaflet-map>
   </div>
+    <div >
+        <ons-fab onclick="callNewMarkerPage()" position="right bottom" >
+            <ons-icon icon="md-plus"></ons-icon>
+        </ons-fab>
+
+    </div>
+
 </ons-page>
