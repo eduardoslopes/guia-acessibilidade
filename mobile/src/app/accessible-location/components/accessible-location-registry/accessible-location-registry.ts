@@ -1,15 +1,14 @@
 /**
- * Created by marcosflavio on 6/15/17.
+ * Created by marcosflavio on 6/16/17.
  */
 import { Component} from '@angular/core';
-
 import {LocationModel} from '../../models/location';
 
 @Component({
     selector: 'ons-page',
-    template: require('./accessible-location-detais.html')
+    template: require('./accessible-location-registry.html')
 })
-export class AccessibleLocationDetailsComponent {
+export class AccessibleLocationRegitryComponent {
 
     accessibleLocation: LocationModel;
 

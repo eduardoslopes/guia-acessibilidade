@@ -8,13 +8,15 @@ import {OnsenModule} from 'angular2-onsenui';
 import {CommonsModule} from './commons/commons.module'
 import {AccessibleLocationModule} from './accessible-location/accessible-location.module'
 import {MyApp} from './app';
+import {AuthenticationModule} from "./authentication/authentication.module";
 
 @NgModule({
     imports: [
         OnsenModule,
         HttpModule,
         CommonsModule,
-        AccessibleLocationModule
+        AccessibleLocationModule,
+        AuthenticationModule
     ],
     declarations: [
         MyApp,

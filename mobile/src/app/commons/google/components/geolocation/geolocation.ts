@@ -4,9 +4,9 @@
 import { Component, Input, ContentChildren, QueryList } from '@angular/core';
 @Component({
     selector: 'google-search',
-    template: require('./search.html'),
+    template: require('./geolocation.html'),
 })
-export class Search {
+export class Geolocation {
     @Input() address: string = null;
 
     constructor() {
