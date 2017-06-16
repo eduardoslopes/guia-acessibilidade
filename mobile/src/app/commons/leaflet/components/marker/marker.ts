@@ -62,8 +62,6 @@ export class Marker{
             this.marker.bindPopup(this.popupContent);
             map.on('popupopen', () => {
                 $('.callbacklink').click(() => {
-                    //TODO change the page
-                    console.log("Evento de clique");
                     this._navigator.element.pushPage(AccessibleLocationDetailsComponent);
                 });
             });
@@ -83,7 +81,7 @@ export class Marker{
             .concat("<p>Longitude: ")
                 .concat(this.lng.toString())
                 .concat("</p>")
-                .concat("<div class='callbacklink'>")
+                .concat("<div class='callbacklink' style='padding: 15px'>")
                 .concat("<ons-button> Detalhes </ons-button>")
                 .concat("</div>");
     }
