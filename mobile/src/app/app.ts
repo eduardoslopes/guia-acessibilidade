@@ -1,28 +1,38 @@
-import {Component} from '@angular/core';
-
+import {
+    Component,
+    ViewChild,
+    Params,
+    OnsNavigator,
+    OnsenModule,
+    NgModule,
+    CUSTOM_ELEMENTS_SCHEMA,
+    ViewContainerRef
+} from 'angular2-onsenui';
 @Component({
   selector: 'app',
   template: require('./app.html'),
-  styles: [require('./../assets/leaflet.css').toString()]
+  styles: [require('./../assets/leaflet.css').toString()],
+  providers: []
 })
 export class MyApp {
   lat: number;
   lng: number;
   lat2: number;
   lng2: number;
-  iconUrl: string;
-
+  locationName: string;
   constructor() {
       this.lat = -3.700852;
       this.lng = -38.586988;
       this.lat2 = -3.734680;
       this.lng2 = -38.469289;
-      this.iconUrl = "./assets/images/marker-icon.png"
+      this.locationName = 'Shopping da Bezerra';
   }
 
   ngOnInit(): void {}
 
-  callNewMarkerPage(): void {
-    //TODO call a page to register new accessible point
-  }
+    push() {
+    }
+
+    pop() {
+    }
 }
