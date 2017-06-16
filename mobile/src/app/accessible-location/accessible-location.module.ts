@@ -17,7 +17,8 @@ import { AccessibleLocationDetailsComponent } from '../accessible-location/compo
     declarations: [AccessibleLocationDetailsComponent],
     exports: [],
     entryComponents: [AccessibleLocationDetailsComponent],
-    providers: []
+    providers: [],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class AccessibleLocationModule {}

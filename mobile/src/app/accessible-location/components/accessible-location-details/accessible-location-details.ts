@@ -6,7 +6,8 @@ import { Component} from '@angular/core';
 import {Location} from '../../models/location';
 
 @Component({
-    template: './accessible-location-details.html'
+    selector: 'ons-page',
+    template: require('./accessible-location-detais.html')
 })
 export class AccessibleLocationDetailsComponent {
 

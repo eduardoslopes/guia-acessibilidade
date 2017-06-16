@@ -12,6 +12,8 @@ import {
     NgModule,
     CUSTOM_ELEMENTS_SCHEMA
 } from 'angular2-onsenui';
+import {MyApp} from "../../../../app";
+import {AccessibleLocationDetailsComponent} from "../../../../accessible-location/components/accessible-location-details/accessible-location-details";
 
 @Component({
     selector: 'leaflet-marker',
@@ -28,7 +30,7 @@ export class Marker{
     popupContent: string = null;
     marker: any = null;
 
-    constructor() {
+    constructor(private _navigator: OnsNavigator) {
     }
 
     ngOnInit(){
@@ -58,10 +60,11 @@ export class Marker{
         if(this.popup) {
             this.marker.addTo(map);
             this.marker.bindPopup(this.popupContent);
-            map.on('popupopen', function () {
-                $('.callbacklink').click(function() {
+            map.on('popupopen', () => {
+                $('.callbacklink').click(() => {
                     //TODO change the page
                     console.log("Evento de clique");
+                    this._navigator.element.pushPage(AccessibleLocationDetailsComponent);
                 });
             });
         } else {
