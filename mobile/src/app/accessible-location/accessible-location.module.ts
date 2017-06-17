@@ -1,7 +1,6 @@
 /**
  * Created by marcosflavio on 6/15/17.
  */
-import { ErrorHandler } from '@angular/core';
 import {
     ViewChild,
     Params,
@@ -12,12 +11,14 @@ import {
 } from 'angular2-onsenui';
 
 import { AccessibleLocationDetailsComponent } from '../accessible-location/components/accessible-location-details/accessible-location-details'
+import {AccessibleLocationRegitryComponent} from "./components/accessible-location-registry/accessible-location-registry";
+import {AccessibleLocationService} from "./services/accessible-location.service";
 @NgModule({
     imports: [],
-    declarations: [AccessibleLocationDetailsComponent],
+    declarations: [AccessibleLocationDetailsComponent, AccessibleLocationRegitryComponent],
     exports: [],
-    entryComponents: [AccessibleLocationDetailsComponent],
-    providers: [],
+    entryComponents: [AccessibleLocationDetailsComponent, AccessibleLocationRegitryComponent],
+    providers: [AccessibleLocationService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
