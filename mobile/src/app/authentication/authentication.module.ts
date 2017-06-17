@@ -11,14 +11,14 @@ import {
 } from 'angular2-onsenui';
 import {LoginComponent} from "./components/login/login";
 import {SignInComponent} from "./components/sign-in/sign-in";
-import {AuthenticationService} from "./services/user-authentication.service";
+import {UserAuthenticationService} from "./services/user-authentication.service";
 
 @NgModule({
     imports: [],
     declarations: [LoginComponent, SignInComponent],
     exports: [],
     entryComponents: [LoginComponent, SignInComponent],
-    providers: [AuthenticationService],
+    providers: [UserAuthenticationService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
