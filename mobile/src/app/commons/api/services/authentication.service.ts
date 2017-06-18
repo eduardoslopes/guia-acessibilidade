@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
-import {ROOT, USER} from "./server-constants";
+import {ROOT, USER} from "../constants/server.constants";
 
 @Injectable()
 export class AuthenticationService {

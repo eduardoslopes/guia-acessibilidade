@@ -8,8 +8,8 @@ import { Marker } from '../commons/leaflet/components/marker/marker'
 import { Geolocation } from './google/components/geolocation/geolocation'
 import {OnsenModule} from 'angular2-onsenui';
 import {GoogleGeoLocationService} from "./google/services/google-geolocation.service";
-import {AuthenticationService} from "./api/authentication.service";
-import {HttpService} from "./api/http.service";
+import {AuthenticationService} from "./api/services/authentication.service";
+import {HttpService} from "./api/services/http.service";
 
 @NgModule({
     declarations: [Map, Marker, Geolocation],

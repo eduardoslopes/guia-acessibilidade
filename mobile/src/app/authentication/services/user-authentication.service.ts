@@ -3,7 +3,7 @@
  */
 import {Injectable} from "@angular/core";
 import 'rxjs/add/operator/map'
-import {AuthenticationService} from "../../commons/api/authentication.service";
+import {AuthenticationService} from "../../commons/api/services/authentication.service";
 
 @Injectable()
 export class UserAuthenticationService {

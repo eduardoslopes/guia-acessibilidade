@@ -3,7 +3,7 @@
  */
 import {Http, Headers, RequestOptionsArgs, Response} from '@angular/http';
 import {Injectable} from '@angular/core';
-import {ROOT} from './server-constants';
+import {ROOT} from '../constants/server.constants';
 import {Observable} from "rxjs/Observable";
 import {AuthenticationService} from "./authentication.service";
 
