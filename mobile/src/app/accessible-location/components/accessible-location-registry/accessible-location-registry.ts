@@ -11,6 +11,8 @@ import {LocationModel} from '../../models/location';
 export class AccessibleLocationRegitryComponent {
 
     accessibleLocation: LocationModel;
+    lat2: number = -3.734680;
+    lng2: number = -38.469289;
 
     constructor() {
     }
