@@ -13,6 +13,7 @@ export class Map {
     @Input() lng: number = -38.586988;
     @Input() zoom: number = 13;
     @Input() minZoom: number = 5;
+    @Input() id: string = 'map';
     map: L.Map;
     center: any;
 
@@ -25,7 +26,7 @@ export class Map {
     }
 
     initMap() {
-        this.map = L.map('map', {
+        this.map = L.map(this.id, {
             center: this.center,
             zoom: this.zoom,
             minZoom: this.minZoom,
