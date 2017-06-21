@@ -1,0 +1,14 @@
+<ons-toolbar>
+    <div class="center">Nova Localização</div>
+</ons-toolbar>
+<div class="content">
+    <leaflet-map [zoom]="28">
+        <leaflet-marker [lat]="lat2" [lng]="lng2"></leaflet-marker>
+    </leaflet-map>
+</div>
+
+<div >
+    <ons-fab (click)="push()" position="right bottom" >
+        <ons-icon icon="md-plus"></ons-icon>
+    </ons-fab>
+</div>
