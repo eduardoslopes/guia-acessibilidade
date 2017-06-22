@@ -4,7 +4,6 @@
 import {Component, Input, ContentChildren, QueryList, OnDestroy, ViewChild} from '@angular/core';
 import * as L from 'leaflet';
 import { Marker } from '../marker/marker'
-import {OnsNavigator} from "angular2-onsenui";
 @Component({
     selector: 'leaflet-map',
     template: require('./map.html')
@@ -14,6 +13,7 @@ export class Map{
     @Input() lng: number = -38.586988;
     @Input() zoom: number = 13;
     @Input() minZoom: number = 5;
+    @Input() callback: Function;
 
     @ViewChild('map')
     mapElement;
@@ -27,6 +27,15 @@ export class Map{
     ngOnInit() {
         this.center = [this.lat, this.lng];
         this.initMap();
+        this.click();
+    }
+
+    click() {
+        this.map.on('click', (ev: L.LocationEvent) => {
+            if(this.callback != null){
+                this.callback(ev);
+            }
+        });
     }
 
     initMap() {
@@ -38,7 +47,6 @@ export class Map{
             closePopupOnClick: false,
             attributionControl: false
         });
-
         this.addTileLayer();
     }
 
@@ -46,6 +54,8 @@ export class Map{
         L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
             .addTo(this.map);
     }
+
+
 
     @ContentChildren(Marker)
     set _markers(markers: QueryList<Marker>) {

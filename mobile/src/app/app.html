@@ -5,11 +5,11 @@
             <div class="center">Guia Acessibilidade</div>
           </ons-toolbar>
 
-          <div class="content">
-            <div style="padding: 10px">
+          <div class="content" style="width:100%; height:320px;">
+            <!--<div style="padding: 10px">
                 <google-search> </google-search>
-            </div>
-            <leaflet-map [zoom]="28">
+            </div>-->
+            <leaflet-map [zoom]="28" >
                 <leaflet-marker [lat]="lat" [lng]="lng" [locationname]="locationName" [popup]="true" [callback]="callNewMarkerPage"></leaflet-marker>
                 <leaflet-marker [lat]="lat2" [lng]="lng2"></leaflet-marker>
             </leaflet-map>
