@@ -35,7 +35,8 @@ export class Marker{
     }
 
     ngOnInit(){
-        this.createMarker();
+        if(this.lat != null && this.lng != null)
+            this.createMarker();
     }
 
     createMarker() {
