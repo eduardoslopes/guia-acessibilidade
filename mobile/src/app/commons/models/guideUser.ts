@@ -8,10 +8,7 @@ export class GuideUserModel {
     username: string;
     password: string;
 
-    constructor(id: number, name: string, cpf: string, username: string, password: string){
-        this.id = id;
-        this.name = name;
-        this.cpf = cpf;
+    constructor(username: string, password: string){
         this.username = username;
         this.password = password;
     }
