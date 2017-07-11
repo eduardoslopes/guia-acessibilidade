@@ -1,5 +1,5 @@
 import {LocationTypeModel} from "./locationType";
-import {GuideUserModel} from "../../authentication/models/guideUser";
+import {GuideUserModel} from "../../commons/models/guideUser";
 import {CommentModel} from "./comment";
 import {AccessibilityTypeModel} from "./accessibilityType";
 /**

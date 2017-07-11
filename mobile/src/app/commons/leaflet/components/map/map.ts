@@ -14,14 +14,18 @@ export class Map{
     @Input() zoom: number = 13;
     @Input() minZoom: number = 5;
     @Input() callback: Function;
+    @Input() onemarker: boolean = true;
 
     @ViewChild('map')
     mapElement;
 
     map: L.Map;
     center: any;
+    markers: L.LayerGroup;
+
 
     constructor() {
+        this.markers = new L.LayerGroup([]);
     }
 
     ngOnInit() {
@@ -34,8 +38,29 @@ export class Map{
         this.map.on('click', (ev: L.LocationEvent) => {
             if(this.callback != null){
                 this.callback(ev);
+                if(this.onemarker) {
+                    this.createMarker(ev);
+                } else {
+                    //TODO allow n markers
+                }
             }
         });
+    }
+
+    createMarker(ev: L.LocationEvent) {
+        let myIcon = L.icon({
+            iconUrl: require('./../../../../../assets/images/marker-icon.png'),
+            shadowUrl: require('./../../../../../assets/images/marker-shadow.png')
+        });
+        let marker = L.marker([ev.latlng.lat, ev.latlng.lng], {icon: myIcon});
+        this.addToLayer(marker);
+    }
+
+    addToLayer(marker: L.Marker) {
+        this.map.removeLayer(this.markers);
+        this.markers = new L.LayerGroup([]);
+        this.markers.addLayer(marker);
+        this.map.addLayer(this.markers);
     }
 
     initMap() {

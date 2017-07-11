@@ -1,7 +1,7 @@
 /**
  * Created by marcosflavio on 6/7/17.
  */
-import { Component, Input } from '@angular/core';
+import {Component, Input, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from "jquery";
 import {
@@ -35,8 +35,9 @@ export class Marker{
     }
 
     ngOnInit(){
-        if(this.lat != null && this.lng != null)
+        if(this.lat != null && this.lng != null) {
             this.createMarker();
+        }
     }
 
     createMarker() {
