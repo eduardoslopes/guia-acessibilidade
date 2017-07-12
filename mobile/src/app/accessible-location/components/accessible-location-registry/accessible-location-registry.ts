@@ -25,21 +25,22 @@ export class AccessibleLocationRegitryComponent {
     ngOnInit(): void {
     }
 
-    onClickMap(ev: any): void {
+    onClickMap = (ev: any) =>{
         if(ev != null) {
             this.latitude = ev.latlng.lat;
             this.longitude = ev.latlng.lng;
         }
-    }
+    };
+
+
 
     createLocation(lat: number, lng: number) {
-        let location = new LocationModel(this.name, lat, lng, this.guideUser, this.description);
+        let location = new LocationModel(this.name, this.latitude, this.longitude, this.guideUser, this.description);
         this.sendToServer(location);
     }
 
     sendToServer(location) {
         this.service.save(ACCESSIBLELOCATION.MARKER, location).subscribe(data => {
-            console.log(data);
         });
     }
 }
