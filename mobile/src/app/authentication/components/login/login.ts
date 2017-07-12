@@ -2,7 +2,7 @@
  * Created by marcosflavio on 6/16/17.
  */
 import { Component} from '@angular/core';
-import {GuideUserModel} from "../../../commons/models/guideUser";
+import {UserAuthenticationService} from "../../services/user-authentication.service";
 
 @Component({
     selector: 'ons-page',
@@ -10,10 +10,21 @@ import {GuideUserModel} from "../../../commons/models/guideUser";
 })
 export class LoginComponent {
 
-    guideUser: GuideUserModel;
+    username: string = null;
+    password: string = null;
 
-    constructor() {
+    constructor(private userAuthenticationService: UserAuthenticationService) {
     }
 
     ngOnInit(): void {}
+
+    login(){
+        if(this.userAuthenticationService.login(this.username, this.password)){
+            //TODO Change Page
+            console.log(true);
+        }else {
+            console.log(false);
+            //TODO alert user
+        }
+    }
 }
