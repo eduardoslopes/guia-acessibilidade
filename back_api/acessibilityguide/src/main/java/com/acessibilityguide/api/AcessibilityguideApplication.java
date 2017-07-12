@@ -37,7 +37,7 @@ public class AcessibilityguideApplication implements CommandLineRunner {
 	@Bean
 	public Docket smartxApi(){
 		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("SmartX")
+				.groupName("Acessibility Guide")
 				.apiInfo(apiInfo())
 				.select()
 				.paths(PathSelectors.regex("/.*"))
@@ -59,7 +59,8 @@ public class AcessibilityguideApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... arg0) throws Exception {
-				
+//		mingrationGenerator.generate("add_votes_type", 1.06);
+//		mingrationGenerator.generateForPendingDrops(1.02);
 		migrationRunner.run();
 	}
 }

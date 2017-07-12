@@ -9,6 +9,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.avaje.ebean.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name= "acessibility_type")
@@ -21,6 +22,7 @@ public class AcessibilityType extends Model {
 
     private Boolean another;
 
+    @JsonIgnore
     @ManyToMany
     private List<Marker> markers;
 

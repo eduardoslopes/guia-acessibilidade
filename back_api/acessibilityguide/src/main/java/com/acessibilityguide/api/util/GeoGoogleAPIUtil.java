@@ -3,6 +3,7 @@ package com.acessibilityguide.api.util;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.GeocodingResult;
+import com.google.maps.model.LatLng;
 
 public class GeoGoogleAPIUtil {
 	
@@ -17,6 +18,16 @@ public class GeoGoogleAPIUtil {
 		try {
 			GeocodingResult[] places = GeocodingApi.geocode(geoApiContext, query).await();
 			return places;
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return null;
+	}
+	
+	public String findFullAddress(LatLng location) {
+		try {
+			GeocodingResult[] places  = GeocodingApi.reverseGeocode(geoApiContext, location).await();
+			return places[0].formattedAddress;
 		} catch (Exception e) {
 			e.getMessage();
 		}

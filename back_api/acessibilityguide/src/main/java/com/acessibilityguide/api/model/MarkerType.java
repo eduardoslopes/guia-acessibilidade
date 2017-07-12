@@ -14,6 +14,17 @@ public class MarkerType extends Model {
     private Long id;
 
     private String name;
+    
+    private String iconName;
+
+    
+	public String getIconName() {
+		return iconName;
+	}
+
+	public void setIconName(String iconName) {
+		this.iconName = iconName;
+	}
 
 	public Long getId() {
 		return id;

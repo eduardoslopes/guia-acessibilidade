@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<migration xmlns="http://ebean-orm.github.io/xml/ns/dbmigration">
+    <changeSet type="apply">
+        <addColumn tableName="marker_vote">
+            <column name="vote_type" type="varchar(4)" checkConstraint="check ( vote_type in ('DOWN','UP'))" checkConstraintName="ck_marker_vote_vote_type"/>
+        </addColumn>
+    </changeSet>
+</migration>
