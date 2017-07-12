@@ -5,32 +5,28 @@ import { Component, Input } from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from "jquery";
 import {
-    ViewChild,
-    Params,
     OnsNavigator,
-    OnsenModule,
-    NgModule,
     CUSTOM_ELEMENTS_SCHEMA
 } from 'angular2-onsenui';
-import {MyApp} from "../../../../app";
-import {AccessibleLocationDetailsComponent} from "../../../../accessible-location/components/accessible-location-details/accessible-location-details";
+import {LocationModel} from "../../../models/location";
+import {AccessibleLocationService} from "../../../../accessible-location/services/accessible-location.service";
+import {ACCESSIBLELOCATION} from "../../../../accessible-location/constants/accessible-location.constants";
 
 @Component({
     selector: 'leaflet-marker',
     template: './marker.html'
 })
 export class Marker{
-    @Input() lat: number = null;
-    @Input() lng: number = null;
     @Input() onClick: any = undefined;
     @Input() iconUrl: string = '';
     @Input() popup: boolean = false;
-    @Input() locationname: string = '';
     @Input() callback: Function;
     popupContent: string = null;
-    marker: any = null;
+    @Input() location: LocationModel;
+    marker: any;
 
-    constructor(private _navigator: OnsNavigator) {
+
+    constructor(private _navigator: OnsNavigator, private accessibleLocationService : AccessibleLocationService) {
     }
 
     ngOnInit(){
@@ -44,14 +40,14 @@ export class Marker{
                 shadowUrl: require('./../../../../../assets/images/marker-shadow.png')
             });
 
-            this.marker = L.marker([this.lat, this.lng], {icon: myIcon});
+            this.marker = L.marker([this.location.latitude, this.location.longitude], {icon: myIcon});
         }else {
             let myIcon = L.icon({
                 iconUrl: this.iconUrl,
                 shadowUrl: require('./../../../../../assets/images/marker-shadow.png')
             });
 
-            this.marker = L.marker([this.lat, this.lng], {icon: myIcon});
+            this.marker = L.marker([this.location.latitude, this.location.longitude], {icon: myIcon});
         }
         this.setPopupContent();
     }
@@ -61,8 +57,11 @@ export class Marker{
             this.marker.addTo(map);
             this.marker.bindPopup(this.popupContent);
             map.on('popupopen', () => {
-                $('.callbacklink').click(() => {
-                    this._navigator.element.pushPage(AccessibleLocationDetailsComponent);
+                $('.voteup').click(() => {
+                    this.sendVote('UP');
+                });
+                $('.votedown').click(() => {
+                    this.sendVote('DOWN');
                 });
             });
         } else {
@@ -70,19 +69,41 @@ export class Marker{
         }
     }
 
+    sendVote(voteType){
+        let vote = {
+            markerId: this.location.id,
+            voteType: voteType,
+            username: 'admin',
+        };
+        console.log(vote);
+        this.accessibleLocationService.update(ACCESSIBLELOCATION.MARKER + '/applyVote', vote)
+    }
+
     setPopupContent() {
         this.popupContent =
-            "<p>Local<br />"
-                .concat(this.locationname)
-                .concat( "</p>")
-            .concat("<p>Latitude: ")
-                .concat(this.lat.toString())
-                .concat("</p>")
-            .concat("<p>Longitude: ")
-                .concat(this.lng.toString())
-                .concat("</p>")
-                .concat("<div class='callbacklink' style='padding: 15px'>")
-                .concat("<ons-button> Detalhes </ons-button>")
-                .concat("</div>");
+            `<ons-row>
+                <ons-col>
+                    <div style='margin: 0px'>
+                        <div><ons-button modifier="quiet" class="voteup"> <ons-icon icon="caret-up" style="color: black; padding: 0px"> </ons-icon> </ons-button></div>
+                        <div style="padding-left: 16px; padding-right: 16px">` + this.location.votes + `</div>
+                        <div><ons-button modifier="quiet" class="votedown"> <ons-icon icon="caret-down" style="color: black; padding: 0px"> </ons-icon> </ons-button></div>
+                    </div>
+                </ons-col>
+                <ons-col>
+                    <p>
+                        ` + this.location.name  + `
+                    </p>
+                </ons-col>
+            </ons-row>
+            <div><label>Tipo local: </label> ` + this.location.markerType.name + ` </div>
+            <ons-row>
+                <ons-col> <label>Acessibilidades: </label> </ons-col>
+                <ons-col> 
+                    <div *ngFor="let acessibilityType of location.accessibilityTypes"></div>
+                </ons-col>
+            </ons-row>
+            <div><label>Latitude: </label>` + this.location.latitude + `</div>
+            <div><label>Longitude: </label>`+ this.location.longitude + `</div>`
+
     }
 }

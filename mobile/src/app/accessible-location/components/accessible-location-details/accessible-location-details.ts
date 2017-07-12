@@ -3,7 +3,7 @@
  */
 import { Component} from '@angular/core';
 
-import {LocationModel} from '../../models/location';
+import {LocationModel} from '../../../commons/models/location';
 
 @Component({
     selector: 'ons-page',
