@@ -18,27 +18,28 @@ export class AccessibleLocationRegitryComponent {
     name: string = null;
     guideUser: GuideUserModel = null;
     constructor(private zone: NgZone, private service: AccessibleLocationService) {
+        this.guideUser = new GuideUserModel("marcosflavio", "123456", "marcos flavio");
+        this.guideUser.setId(1);
     }
 
     ngOnInit(): void {
-        this.guideUser = new GuideUserModel("eduardo", "chupapica", "Eduardo");
     }
 
     onClickMap(ev: any): void {
         if(ev != null) {
             this.latitude = ev.latlng.lat;
             this.longitude = ev.latlng.lng;
-            console.log(this.latitude);
         }
     }
 
-    createLocation() {
-        //let location = new LocationModel(this.name, this.latitude, this.longitude, this.guideUser);
-        //this.sendToServer({name: this.name, latitude: this.latitude, longitude: this.longitude});
-        //TODO FIX BUG, ATTRIBUTS BECOME UNDEFINED
+    createLocation(lat: number, lng: number) {
+        let location = new LocationModel(this.name, lat, lng, this.guideUser, this.description);
+        this.sendToServer(location);
     }
 
     sendToServer(location) {
-        this.service.save(ACCESSIBLELOCATION.MARKER, location);
+        this.service.save(ACCESSIBLELOCATION.MARKER, location).subscribe(data => {
+            console.log(data);
+        });
     }
 }

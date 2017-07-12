@@ -12,14 +12,15 @@ export class LocationModel {
     name: string;
     description: string;
     locationType: LocationTypeModel;
-    guideUser: GuideUserModel;
+    user: GuideUserModel;
     comments: CommentModel[];
     accessibilityTypes: AccessibilityTypeModel[];
 
-    constructor(name: string, latitude: number, longitude: number, guideUser: GuideUserModel){
+    constructor(name: string, latitude: number, longitude: number, guideUser: GuideUserModel, description: string){
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.guideUser = guideUser;
+        this.user = guideUser;
+        this.description = description;
     }
 }

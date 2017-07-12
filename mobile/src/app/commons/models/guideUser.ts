@@ -15,4 +15,8 @@ export class GuideUserModel {
         if(cpf)
             this.cpf = cpf;
     }
+
+    setId(id: number){
+        this.id = id;
+    }
 }

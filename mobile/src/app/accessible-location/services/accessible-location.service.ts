@@ -12,6 +12,8 @@ export class AccessibleLocationService {
     }
 
     save(url: string, T: any): Observable<any> {
+        console.log(url);
+        console.log(T);
         return this.httpService.post(url, T)
             .map(result => result.json());
     }
