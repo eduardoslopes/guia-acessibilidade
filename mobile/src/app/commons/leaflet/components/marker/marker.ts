@@ -3,6 +3,7 @@
  */
 import { Component, Input } from '@angular/core';
 import * as L from 'leaflet';
+var LI = require('leaflet.awesome-markers/dist/leaflet.awesome-markers.js');
 import * as $ from "jquery";
 import {
     ViewChild,
@@ -38,20 +39,31 @@ export class Marker{
     }
 
     createMarker() {
+
+
+
+
+        let redMarker = LI.AwesomeMarkers.icon({
+            icon: 'coffee',
+            markerColor: 'red'
+        });
+
+        console.log(LI);
+
         if(this.iconUrl === "") {
             let myIcon = L.icon({
                 iconUrl: require('./../../../../../assets/images/marker-icon.png'),
                 shadowUrl: require('./../../../../../assets/images/marker-shadow.png')
             });
 
-            this.marker = L.marker([this.lat, this.lng], {icon: myIcon});
+            this.marker = L.marker([this.lat, this.lng], {icon: redMarker});
         }else {
             let myIcon = L.icon({
                 iconUrl: this.iconUrl,
                 shadowUrl: require('./../../../../../assets/images/marker-shadow.png')
             });
 
-            this.marker = L.marker([this.lat, this.lng], {icon: myIcon});
+            this.marker = L.marker([this.lat, this.lng], {icon: redMarker});
         }
         this.setPopupContent();
     }
