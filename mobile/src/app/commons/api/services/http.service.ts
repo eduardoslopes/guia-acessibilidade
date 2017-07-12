@@ -18,10 +18,10 @@ export class HttpService {
     }
 
     get(url: string, options?: RequestOptionsArgs) : Observable<Response> {
-        let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: new Headers({'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(this.authenticationService.user.username + ":" + this.authenticationService.user.password)})};
+        //let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: new Headers({'Content-Type': 'application/json',
+          //      'Authorization': 'Basic ' + btoa(this.authenticationService.user.username + ":" + this.authenticationService.user.password)})};
         url = this.urlRoot + url;
-        return this.http.get(url, requestOptionsArgs);
+        return this.http.get(url, options);
     }
 
     post(url: string, body: any, options?: RequestOptionsArgs) : Observable<Response> {

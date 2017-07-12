@@ -7,6 +7,8 @@ import {OnsNavigator, OnsenModule, CUSTOM_ELEMENTS_SCHEMA} from 'angular2-onsenu
 import {AccessibleLocationService} from "../../services/accessible-location.service";
 import {ACCESSIBLELOCATION} from "../../constants/accessible-location.constants";
 import {GuideUserModel} from "../../../commons/models/guideUser";
+import {LocationTypeModel} from "../../models/locationType";
+import {Observable} from "rxjs";
 @Component({
     selector: 'ons-page',
     template: require('./accessible-location-registry.html')
@@ -17,30 +19,47 @@ export class AccessibleLocationRegitryComponent {
     description: string = null;
     name: string = null;
     guideUser: GuideUserModel = null;
+    locationtypes: LocationTypeModel[] = null;
+
     constructor(private zone: NgZone, private service: AccessibleLocationService) {
         this.guideUser = new GuideUserModel("marcosflavio", "123456", "marcos flavio");
         this.guideUser.setId(1);
     }
 
     ngOnInit(): void {
+        this.getLocationTypes();
+    }
+
+    getLocationTypes(): Observable<LocationTypeModel> {
+        let typesRequest = this.service.findAll(ACCESSIBLELOCATION.GETMARKERTYPE);
+        typesRequest.subscribe(
+            data => {
+                if(data) {
+                    this.locationtypes = data;
+                }
+            }
+        );
+        return typesRequest;
     }
 
     onClickMap = (ev: any) =>{
+
         if(ev != null) {
             this.latitude = ev.latlng.lat;
             this.longitude = ev.latlng.lng;
         }
     };
 
-
-
-    createLocation(lat: number, lng: number) {
+    createLocation() {
         let location = new LocationModel(this.name, this.latitude, this.longitude, this.guideUser, this.description);
         this.sendToServer(location);
     }
 
     sendToServer(location) {
-        this.service.save(ACCESSIBLELOCATION.MARKER, location).subscribe(data => {
+        this.service.save(ACCESSIBLELOCATION.MARKER, location).subscribe(response => {
+            if(response.status == 200){
+                //TODO Change page
+            }
         });
     }
 }

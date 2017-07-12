@@ -12,6 +12,15 @@
     <div style="padding: 10px">
         <ons-input placeholder="Descrição" [(value)]="description" (input)="description = $event.target.value"></ons-input>
     </div>
+
+    <div>
+        <select>
+            <option ng-for="let locationtype of locationtypes" value= {{locationtype.id}}>
+                {{locationtype.name}}
+            </option>
+        </select>
+    </div>
+
 </div>
 <div>
     <ons-fab (click)="createLocation()" position="right bottom" >
