@@ -1,7 +1,7 @@
 /**
  * Created by marcosflavio on 6/7/17.
  */
-import { Component, Input } from '@angular/core';
+import {Component, Input, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from "jquery";
 import {
@@ -14,6 +14,7 @@ import {
 } from 'angular2-onsenui';
 import {MyApp} from "../../../../app";
 import {AccessibleLocationDetailsComponent} from "../../../../accessible-location/components/accessible-location-details/accessible-location-details";
+import {AccessibleLocationRegitryComponent} from "../../../../accessible-location/components/accessible-location-registry/accessible-location-registry";
 
 @Component({
     selector: 'leaflet-marker',
@@ -34,7 +35,9 @@ export class Marker{
     }
 
     ngOnInit(){
-        this.createMarker();
+        if(this.lat != null && this.lng != null) {
+            this.createMarker();
+        }
     }
 
     createMarker() {
@@ -62,7 +65,8 @@ export class Marker{
             this.marker.bindPopup(this.popupContent);
             map.on('popupopen', () => {
                 $('.callbacklink').click(() => {
-                    this._navigator.element.pushPage(AccessibleLocationDetailsComponent);
+                    //this._navigator.element.pushPage(AccessibleLocationDetailsComponent);
+                    this._navigator.element.pushPage(AccessibleLocationRegitryComponent);
                 });
             });
         } else {

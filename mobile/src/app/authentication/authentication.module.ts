@@ -12,9 +12,10 @@ import {
 import {LoginComponent} from "./components/login/login";
 import {SignInComponent} from "./components/sign-in/sign-in";
 import {UserAuthenticationService} from "./services/user-authentication.service";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
-    imports: [],
+    imports: [CommonModule],
     declarations: [LoginComponent, SignInComponent],
     exports: [],
     entryComponents: [LoginComponent, SignInComponent],

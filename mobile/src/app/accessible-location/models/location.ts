@@ -1,5 +1,5 @@
 import {LocationTypeModel} from "./locationType";
-import {GuideUserModel} from "../../authentication/models/guideUser";
+import {GuideUserModel} from "../../commons/models/guideUser";
 import {CommentModel} from "./comment";
 import {AccessibilityTypeModel} from "./accessibilityType";
 /**
@@ -11,21 +11,17 @@ export class LocationModel {
     longitude: number;
     name: string;
     description: string;
-    locationType: LocationTypeModel;
-    guideUser: GuideUserModel;
+    markerType: LocationTypeModel;
+    user: GuideUserModel;
     comments: CommentModel[];
     accessibilityTypes: AccessibilityTypeModel[];
 
-    constructor(id: number, name: string, latitude: number,
-                longitude: number, locationType: LocationTypeModel, guideUser: GuideUserModel,
-                comments: CommentModel[], accessibilityTypes: AccessibilityTypeModel[]){
-        this.id = id;
+    constructor(name: string, latitude: number, longitude: number, guideUser: GuideUserModel, description: string, locationType: LocationTypeModel){
+        this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.name = name;
-        this.locationType = locationType;
-        this.guideUser = guideUser;
-        this.comments = comments;
-        this.accessibilityTypes = accessibilityTypes;
+        this.user = guideUser;
+        this.description = description;
+        this.markerType = locationType;
     }
 }

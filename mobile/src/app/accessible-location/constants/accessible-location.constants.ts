@@ -4,5 +4,6 @@
 export const ACCESSIBLELOCATION = {
     ACCESSIBILITYTYPE: "/acessibilityType",
     COMMENT: "/comment",
-    MARKER: "/marker"
+    MARKER: "/marker",
+    GETMARKERTYPE: "/markerType/findAll"
 };

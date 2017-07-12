@@ -8,6 +8,10 @@ import {
     CUSTOM_ELEMENTS_SCHEMA,
     ViewContainerRef
 } from 'angular2-onsenui';
+import {LocationModel} from "./accessible-location/models/location";
+import {Observable} from "rxjs";
+import {AccessibleLocationService} from "./accessible-location/services/accessible-location.service";
+import {ACCESSIBLELOCATION} from "./accessible-location/constants/accessible-location.constants";
 @Component({
   selector: 'app',
   template: require('./app.html'),
@@ -15,20 +19,27 @@ import {
   providers: []
 })
 export class MyApp {
-  lat: number;
-  lng: number;
-  lat2: number;
-  lng2: number;
-  locationName: string;
-  constructor() {
-      this.lat = -3.700852;
-      this.lng = -38.586988;
-      this.lat2 = -3.734680;
-      this.lng2 = -38.469289;
-      this.locationName = 'Shopping da Bezerra';
-  }
 
-  ngOnInit(): void {}
+    locations: LocationModel[] = null;
+
+    constructor(private accesibleLocationService: AccessibleLocationService) {
+    }
+
+    ngOnInit(): void {
+        this.getLocations();
+    }
+
+    getLocations(): Observable<LocationModel> {
+        let typesRequest = this.accesibleLocationService.findAll(ACCESSIBLELOCATION.MARKER);
+        typesRequest.subscribe(
+            data => {
+                if(data) {
+                    this.locations = data;
+                }
+            }
+        );
+        return typesRequest;
+    }
 
     push() {
     }
