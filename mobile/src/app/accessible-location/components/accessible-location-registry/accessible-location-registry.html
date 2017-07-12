@@ -6,7 +6,6 @@
 <div class="content">
 
     <leaflet-map [zoom]="28" [callback]="onClickMap">
-        <leaflet-marker [lat]="lat" [lng]="lng"></leaflet-marker>
     </leaflet-map>
     <div style="padding: 10px">
         <ons-input placeholder="Nome da nova localização" [(value)]="name" (input)="name = $event.target.value"></ons-input>
