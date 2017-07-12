@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ng2-bootstrap/x.x.x/ng2-bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <ons-toolbar>
     <div class="center">Nova Localização</div>
 </ons-toolbar>
@@ -12,13 +14,15 @@
     <div style="padding: 10px">
         <ons-input placeholder="Descrição" [(value)]="description" (input)="description = $event.target.value"></ons-input>
     </div>
-
-    <div>
-        <select>
-            <option ng-for="let locationtype of locationtypes" value= {{locationtype.id}}>
-                {{locationtype.name}}
-            </option>
-        </select>
+    <label class="text-muted" style="margin-left: 10px;">Tipo de Local</label>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <select [(ngModel)]="markerType" class="form-control" style="width: 140px; margin-left: 10px;">
+                <option *ngFor="let loc of locationtypes" [ngValue]="loc">
+                    {{loc.name}}
+                </option>
+            </select>
+        </div>
     </div>
 
 </div>

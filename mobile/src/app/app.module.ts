@@ -9,9 +9,13 @@ import {CommonsModule} from './commons/commons.module'
 import {AccessibleLocationModule} from './accessible-location/accessible-location.module'
 import {MyApp} from './app';
 import {AuthenticationModule} from "./authentication/authentication.module";
+import {BrowserModule} from "@angular/platform-browser";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     imports: [
+        BrowserModule,
         OnsenModule,
         HttpModule,
         CommonsModule,

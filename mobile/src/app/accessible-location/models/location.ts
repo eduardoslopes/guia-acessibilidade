@@ -11,16 +11,17 @@ export class LocationModel {
     longitude: number;
     name: string;
     description: string;
-    locationType: LocationTypeModel;
+    markerType: LocationTypeModel;
     user: GuideUserModel;
     comments: CommentModel[];
     accessibilityTypes: AccessibilityTypeModel[];
 
-    constructor(name: string, latitude: number, longitude: number, guideUser: GuideUserModel, description: string){
+    constructor(name: string, latitude: number, longitude: number, guideUser: GuideUserModel, description: string, locationType: LocationTypeModel){
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
         this.user = guideUser;
         this.description = description;
+        this.markerType = locationType;
     }
 }

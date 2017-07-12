@@ -3,7 +3,6 @@
  */
 import {Component, NgZone} from '@angular/core';
 import {LocationModel} from '../../models/location';
-import {OnsNavigator, OnsenModule, CUSTOM_ELEMENTS_SCHEMA} from 'angular2-onsenui';
 import {AccessibleLocationService} from "../../services/accessible-location.service";
 import {ACCESSIBLELOCATION} from "../../constants/accessible-location.constants";
 import {GuideUserModel} from "../../../commons/models/guideUser";
@@ -19,7 +18,8 @@ export class AccessibleLocationRegitryComponent {
     description: string = null;
     name: string = null;
     guideUser: GuideUserModel = null;
-    locationtypes: LocationTypeModel[] = null;
+    locationtypes: LocationTypeModel[];
+    markerType: LocationTypeModel = null;
 
     constructor(private zone: NgZone, private service: AccessibleLocationService) {
         this.guideUser = new GuideUserModel("marcosflavio", "123456", "marcos flavio");
@@ -51,7 +51,7 @@ export class AccessibleLocationRegitryComponent {
     };
 
     createLocation() {
-        let location = new LocationModel(this.name, this.latitude, this.longitude, this.guideUser, this.description);
+        let location = new LocationModel(this.name, this.latitude, this.longitude, this.guideUser, this.description, this.markerType);
         this.sendToServer(location);
     }
 
@@ -62,4 +62,5 @@ export class AccessibleLocationRegitryComponent {
             }
         });
     }
+
 }

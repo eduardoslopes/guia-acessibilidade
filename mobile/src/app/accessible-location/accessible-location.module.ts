@@ -14,8 +14,10 @@ import { AccessibleLocationDetailsComponent } from '../accessible-location/compo
 import {AccessibleLocationRegitryComponent} from "./components/accessible-location-registry/accessible-location-registry";
 import {AccessibleLocationService} from "./services/accessible-location.service";
 import {CommonsModule} from "../commons/commons.module";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 @NgModule({
-    imports: [CommonsModule],
+    imports: [CommonsModule, CommonModule, FormsModule],
     declarations: [AccessibleLocationDetailsComponent, AccessibleLocationRegitryComponent],
     exports: [],
     entryComponents: [AccessibleLocationDetailsComponent, AccessibleLocationRegitryComponent],
