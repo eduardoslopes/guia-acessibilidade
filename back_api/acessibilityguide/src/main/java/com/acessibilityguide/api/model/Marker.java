@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.avaje.ebean.Model;
@@ -26,20 +25,29 @@ public class Marker extends Model {
     private Double latitude;
 
     private Double longitude;
-
+    
+    private String completeAddress;
+    
+    private Integer votes;
+    
     @ManyToOne(optional = false)
     private MarkerType markerType;
 
+    @JsonIgnore
     @ManyToOne(optional = false)
     private GuideUser user;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "marker")
-    private List<Comment> comments;
-
-    @JsonIgnore
     @ManyToMany(mappedBy = "markers")
     private List<AcessibilityType> acessibilityTypes;
+
+    
+	public Integer getVotes() {
+		return votes;
+	}
+
+	public void setVotes(Integer votes) {
+		this.votes = votes;
+	}
 
 	public Long getId() {
 		return id;
@@ -47,6 +55,14 @@ public class Marker extends Model {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getCompleteAddress() {
+		return completeAddress;
+	}
+
+	public void setCompleteAddress(String completeAddress) {
+		this.completeAddress = completeAddress;
 	}
 
 	public String getName() {
@@ -97,20 +113,16 @@ public class Marker extends Model {
 		this.user = user;
 	}
 
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
 	public List<AcessibilityType> getAcessibilityTypes() {
 		return acessibilityTypes;
 	}
 
 	public void setAcessibilityTypes(List<AcessibilityType> acessibilityTypes) {
 		this.acessibilityTypes = acessibilityTypes;
+	}
+
+	public void sumVote(Integer count) {
+		this.votes += count;
 	}
     
 	
