@@ -21,7 +21,8 @@ import {ACCESSIBLELOCATION} from "./accessible-location/constants/accessible-loc
 export class MyApp {
 
     locations: LocationModel[] = null;
-
+    longitude: number = -39.018291;
+    latitude: number = -4.970475;
     constructor(private accesibleLocationService: AccessibleLocationService) {
     }
 

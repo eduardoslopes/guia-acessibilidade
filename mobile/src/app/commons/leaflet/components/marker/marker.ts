@@ -68,7 +68,7 @@ export class Marker{
                 $('.callbacklink').click(() => {
                     //this._navigator.element.pushPage(AccessibleLocationDetailsComponent);
                     //this._navigator.element.pushPage(AccessibleLocationRegitryComponent);
-                    this._navigator.element.pushPage(LoginComponent);
+                     this._navigator.element.pushPage(LoginComponent);
                 });
             });
         } else {

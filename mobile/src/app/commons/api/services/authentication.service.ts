@@ -24,12 +24,13 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string): Observable<boolean> {
-        return this.http.post(this.urlAuth, JSON.stringify({ username: username, password: password }))
+        return this.http.post(this.urlAuth, { username: username, password: password })
             .map((response: Response) => {
                 let user = response.json() && response.json().username && response.json().name && response.json().password;
+
                 if (user) {
-                    this.user = user;
-                    localStorage.setItem('currentUser', JSON.stringify({ username: user.username, password: user.password, name: user.name }));
+                    this.user = response.json();
+                    localStorage.setItem('currentUser', JSON.stringify(this.user));
                     return true;
                 } else {
                     return false;

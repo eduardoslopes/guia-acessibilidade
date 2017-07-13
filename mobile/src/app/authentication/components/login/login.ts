@@ -19,12 +19,10 @@ export class LoginComponent {
     ngOnInit(): void {}
 
     login(){
-        if(this.userAuthenticationService.login(this.username, this.password)){
-            //TODO Change Page
-            console.log(true);
-        }else {
-            console.log(false);
-            //TODO alert user
-        }
+       this.userAuthenticationService.login(this.username, this.password).subscribe(data => {
+           if(data) {
+                //TODO change page
+           }
+       });
     }
 }

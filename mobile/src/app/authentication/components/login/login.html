@@ -7,10 +7,10 @@
 
     <div class="container" style="padding: 16px;">
         <div style="padding: 10px">
-            <ons-input placeholder="Nome do usuário" [(value)]="username" (input)="username = $event.target.value"></ons-input>
+            <ons-input placeholder="Username" [(value)]="username" (input)="username = $event.target.value"></ons-input>
         </div>
         <div style="padding: 10px">
-            <ons-input placeholder="Senha" [(value)]="password" (input)="password = $event.target.value"></ons-input>
+            <ons-input placeholder="Password" [(value)]="password" (input)="password = $event.target.value"></ons-input>
         </div>
         <div>
             <ons-button (click)="login()" class="form-group">Login</ons-button>
