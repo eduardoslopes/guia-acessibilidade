@@ -13,9 +13,10 @@ import {LoginComponent} from "./components/login/login";
 import {SignInComponent} from "./components/sign-in/sign-in";
 import {UserAuthenticationService} from "./services/user-authentication.service";
 import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [CommonModule, FormsModule],
     declarations: [LoginComponent, SignInComponent],
     exports: [],
     entryComponents: [LoginComponent, SignInComponent],

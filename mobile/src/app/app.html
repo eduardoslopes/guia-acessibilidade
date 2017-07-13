@@ -13,6 +13,7 @@
                 <leaflet-marker *ngFor="let loc of locations" [lat]="loc.latitude" [lng]="loc.longitude"
                 [popup]="true" [locationname]="loc.name">
                 </leaflet-marker>
+                <!-- <leaflet-marker [lat]="latitude" [lng]="longitude" [popup]="true"> </leaflet-marker> -->
             </leaflet-map>
           </div>
 

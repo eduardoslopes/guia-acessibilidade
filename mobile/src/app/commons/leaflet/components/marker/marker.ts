@@ -15,6 +15,7 @@ import {
 import {MyApp} from "../../../../app";
 import {AccessibleLocationDetailsComponent} from "../../../../accessible-location/components/accessible-location-details/accessible-location-details";
 import {AccessibleLocationRegitryComponent} from "../../../../accessible-location/components/accessible-location-registry/accessible-location-registry";
+import {LoginComponent} from "../../../../authentication/components/login/login";
 
 @Component({
     selector: 'leaflet-marker',
@@ -66,7 +67,8 @@ export class Marker{
             map.on('popupopen', () => {
                 $('.callbacklink').click(() => {
                     //this._navigator.element.pushPage(AccessibleLocationDetailsComponent);
-                    this._navigator.element.pushPage(AccessibleLocationRegitryComponent);
+                    //this._navigator.element.pushPage(AccessibleLocationRegitryComponent);
+                     this._navigator.element.pushPage(LoginComponent);
                 });
             });
         } else {
