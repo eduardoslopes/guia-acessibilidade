@@ -10,7 +10,7 @@
                 <google-search> </google-search>
             </div>
             <leaflet-map [zoom]="28">
-                <leaflet-marker [location]="marker1" [popup]="true" [callback]="callNewMarkerPage"></leaflet-marker>
+                <leaflet-marker [location]="marker1" [popup]="true" [callback]="callNewMarkerPage" (onVote)="sendVote(vote)"></leaflet-marker>
             </leaflet-map>
           </div>
 

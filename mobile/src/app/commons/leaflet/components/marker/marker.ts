@@ -1,7 +1,7 @@
 /**
  * Created by marcosflavio on 6/7/17.
  */
-import { Component, Input } from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from "jquery";
 import {
@@ -11,6 +11,7 @@ import {
 import {LocationModel} from "../../../models/location";
 import {AccessibleLocationService} from "../../../../accessible-location/services/accessible-location.service";
 import {ACCESSIBLELOCATION} from "../../../../accessible-location/constants/accessible-location.constants";
+import {VoteDTO} from "../../../models/VoteDTO";
 
 @Component({
     selector: 'leaflet-marker',
@@ -24,6 +25,7 @@ export class Marker{
     popupContent: string = null;
     @Input() location: LocationModel;
     marker: any;
+    @Output() onVote: EventEmitter<VoteDTO> = new EventEmitter<VoteDTO>()
 
 
     constructor(private _navigator: OnsNavigator, private accessibleLocationService : AccessibleLocationService) {
@@ -70,13 +72,8 @@ export class Marker{
     }
 
     sendVote(voteType){
-        let vote = {
-            markerId: this.location.id,
-            voteType: voteType,
-            username: 'admin',
-        };
-        console.log(vote);
-        this.accessibleLocationService.update(ACCESSIBLELOCATION.MARKER + '/applyVote', vote)
+        let vote = new VoteDTO(this.location.id, voteType);
+        this.onVote.emit(vote);
     }
 
     setPopupContent() {

@@ -10,6 +10,10 @@ import {
 } from 'angular2-onsenui';
 import {LocationModel} from "./commons/models/location";
 import {LocationTypeModel} from "./commons/models/locationType";
+import {AccessibleLocationService} from "./accessible-location/services/accessible-location.service";
+import {ACCESSIBLELOCATION} from "./accessible-location/constants/accessible-location.constants";
+import {VoteDTO} from "./commons/models/VoteDTO";
+import {UserAuthenticationService} from "./authentication/services/user-authentication.service";
 @Component({
   selector: 'app',
   template: require('./app.html'),
@@ -23,7 +27,8 @@ export class MyApp {
   lng2: number;
   locationName: string;
   marker1: LocationModel;
-  constructor() {
+  constructor(private accessibleLocationService: AccessibleLocationService,
+              private userAuthenticationService: UserAuthenticationService) {
       this.lat = -3.700852;
       this.lng = -38.586988;
       this.lat2 = -3.734680;
@@ -34,6 +39,12 @@ export class MyApp {
 
   ngOnInit(): void {
   }
+
+    sendVote(vote: VoteDTO){
+      let user = this.userAuthenticationService.getLoggedUser();
+      vote.username = user.username;
+      this.accessibleLocationService.update(ACCESSIBLELOCATION.MARKER + '/applyVote', vote)
+    }
 
     push() {
     }
