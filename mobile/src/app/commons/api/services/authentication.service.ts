@@ -14,10 +14,11 @@ export class AuthenticationService {
     public user: GuideUserModel;
     urlRoot = ROOT.DEV;
     urlLogin = USER.LOGIN;
+    urlWithouApi = ROOT.DEVWITHOUAPI;
     urlAuth: string;
 
     constructor(private http: Http) {
-        this.urlAuth = this.urlRoot + this.urlLogin;
+        this.urlAuth = this.urlWithouApi + this.urlLogin;
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if(currentUser && currentUser.username && currentUser.password)
             this.user = new GuideUserModel(currentUser.username, currentUser.password);
