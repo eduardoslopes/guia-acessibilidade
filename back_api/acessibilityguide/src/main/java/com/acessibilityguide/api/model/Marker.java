@@ -123,6 +123,14 @@ public class Marker extends Model {
 	public void sumVote(Integer count) {
 		this.votes += count;
 	}
+
+	@Override
+	public String toString() {
+		return "Marker [id=" + id + ", name=" + name + ", description=" + description + ", latitude=" + latitude
+				+ ", longitude=" + longitude + ", completeAddress=" + completeAddress + ", votes=" + votes
+				+ ", markerType=" + markerType + ", user=" + user + ", acessibilityTypes=" + acessibilityTypes + "]";
+	}
     
+	
 	
 }

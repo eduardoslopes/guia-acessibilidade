@@ -8,10 +8,14 @@ import {GuideUserModel} from "../../../commons/models/guideUser";
 import {Observable} from "rxjs";
 import {LocationModel} from '../../../commons/models/location';
 import {LocationTypeModel} from "../../../commons/models/locationType";
+import {AuthenticationService} from "../../../commons/api/services/authentication.service";
+import {OnsNavigator} from "angular2-onsenui";
+import {DefaultComponent} from "../../../DefaultComponent";
 
 @Component({
     selector: 'ons-page',
-    template: require('./accessible-location-registry.html')
+    template: require('./accessible-location-registry.html'),
+    styles: [require('./accessible-location-registry.css').toString()]
 })
 export class AccessibleLocationRegitryComponent {
     latitude: number;
@@ -22,9 +26,10 @@ export class AccessibleLocationRegitryComponent {
     locationtypes: LocationTypeModel[];
     markerType: LocationTypeModel = null;
 
-    constructor(private zone: NgZone, private service: AccessibleLocationService) {
-        this.guideUser = new GuideUserModel("marcosflavio", "123456", "marcos flavio");
-        this.guideUser.setId(1);
+    constructor(private zone: NgZone, private service: AccessibleLocationService,
+                authenticationService: AuthenticationService, private navigator: OnsNavigator) {
+        this.guideUser = authenticationService.user;
+        console.log(this.guideUser);
     }
 
     ngOnInit(): void {
@@ -56,9 +61,7 @@ export class AccessibleLocationRegitryComponent {
 
     sendToServer(location) {
         this.service.save(ACCESSIBLELOCATION.MARKER, location).subscribe(response => {
-            if(response.status == 200){
-                //TODO Change page
-            }
+            this.navigator.element.pushPage(DefaultComponent);
         });
     }
 
