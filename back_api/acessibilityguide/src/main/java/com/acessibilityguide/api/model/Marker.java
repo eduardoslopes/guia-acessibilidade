@@ -33,7 +33,6 @@ public class Marker extends Model {
     @ManyToOne(optional = false)
     private MarkerType markerType;
 
-    @JsonIgnore
     @ManyToOne(optional = false)
     private GuideUser user;
 

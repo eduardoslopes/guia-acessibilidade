@@ -1,5 +1,5 @@
 import {LocationModel} from "./location";
-import {GuideUserModel} from "../../authentication/models/guideUser";
+import {GuideUserModel} from "../../commons/models/guideUser";
 /**
  * Created by marcosflavio on 6/16/17.
  */

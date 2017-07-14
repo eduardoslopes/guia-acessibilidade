@@ -6,27 +6,32 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 import {ROOT, USER} from "../constants/server.constants";
+import {GuideUserModel} from "../../models/guideUser";
 
 @Injectable()
 export class AuthenticationService {
     public token: string;
+    public user: GuideUserModel;
     urlRoot = ROOT.DEV;
     urlLogin = USER.LOGIN;
+    urlWithouApi = ROOT.DEVWITHOUAPI;
     urlAuth: string;
 
     constructor(private http: Http) {
-        this.urlAuth = this.urlRoot + this.urlLogin;
+        this.urlAuth = this.urlWithouApi + this.urlLogin;
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
+        if(currentUser && currentUser.username && currentUser.password)
+            this.user = new GuideUserModel(currentUser.username, currentUser.password);
     }
 
     login(username: string, password: string): Observable<boolean> {
-        return this.http.post(this.urlAuth, JSON.stringify({ username: username, password: password }))
+        return this.http.post(this.urlAuth, { username: username, password: password })
             .map((response: Response) => {
-                let token = response.json() && response.json().token;
-                if (token) {
-                    this.token = token;
-                    localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+                let user = response.json() && response.json().username && response.json().name && response.json().password;
+
+                if (user) {
+                    this.user = response.json();
+                    localStorage.setItem('currentUser', JSON.stringify(this.user));
                     return true;
                 } else {
                     return false;

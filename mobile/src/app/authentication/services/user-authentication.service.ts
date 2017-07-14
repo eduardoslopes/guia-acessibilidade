@@ -4,6 +4,7 @@
 import {Injectable} from "@angular/core";
 import 'rxjs/add/operator/map'
 import {AuthenticationService} from "../../commons/api/services/authentication.service";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class UserAuthenticationService {
@@ -11,12 +12,8 @@ export class UserAuthenticationService {
     constructor(private authenticationService: AuthenticationService) {
     }
 
-    login(username: string, password: string): void {
-        if (this.authenticationService.login(username, password)) {
-            //TODO go to create marker page
-        } else {
-            // TODO still on the login page, throw message error
-        }
+    login(username: string, password: string): Observable<Boolean> {
+        return (this.authenticationService.login(username, password));
     }
 
     logout(): void {
@@ -25,8 +22,7 @@ export class UserAuthenticationService {
     }
 
     getLoggedUser(){
-        let currentUserString =  localStorage.getItem('currentUser');
-        let currentUser = JSON.parse(currentUserString);
-        return currentUser;
+        let user = JSON.parse(localStorage.getItem('currentUser'));
+        return user;
     }
 }

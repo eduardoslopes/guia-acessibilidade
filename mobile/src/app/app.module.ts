@@ -9,9 +9,12 @@ import {CommonsModule} from './commons/commons.module'
 import {AccessibleLocationModule} from './accessible-location/accessible-location.module'
 import {MyApp} from './app';
 import {AuthenticationModule} from "./authentication/authentication.module";
+import {BrowserModule} from "@angular/platform-browser";
+import {DefaultComponent} from "./DefaultComponent";
 
 @NgModule({
     imports: [
+        BrowserModule,
         OnsenModule,
         HttpModule,
         CommonsModule,
@@ -19,10 +22,13 @@ import {AuthenticationModule} from "./authentication/authentication.module";
         AuthenticationModule
     ],
     declarations: [
-        MyApp,
+        MyApp, DefaultComponent
     ],
     bootstrap: [
-        MyApp,
+        MyApp
+    ],
+    entryComponents: [
+        DefaultComponent
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA,

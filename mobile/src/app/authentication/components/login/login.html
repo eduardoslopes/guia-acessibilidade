@@ -1,0 +1,19 @@
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ng2-bootstrap/x.x.x/ng2-bootstrap.min.js"></script>-->
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+<ons-toolbar>
+    <div class="center">Login</div>
+</ons-toolbar>
+<div class="content">
+
+    <div class="container" style="padding: 16px;">
+        <div style="padding: 10px">
+            <ons-input placeholder="Username" [(value)]="username" (input)="username = $event.target.value"></ons-input>
+        </div>
+        <div style="padding: 10px">
+            <ons-input placeholder="Password" [(value)]="password" (input)="password = $event.target.value"></ons-input>
+        </div>
+        <div>
+            <ons-button (click)="login()" class="form-group">Login</ons-button>
+        </div>
+    </div>
+</div>

@@ -1,38 +1,63 @@
 /**
  * Created by marcosflavio on 6/7/17.
  */
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {
+    Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy,
+    DoCheck
+} from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from "jquery";
 import {
     OnsNavigator,
-    CUSTOM_ELEMENTS_SCHEMA
 } from 'angular2-onsenui';
 import {LocationModel} from "../../../models/location";
 import {AccessibleLocationService} from "../../../../accessible-location/services/accessible-location.service";
-import {ACCESSIBLELOCATION} from "../../../../accessible-location/constants/accessible-location.constants";
 import {VoteDTO} from "../../../models/VoteDTO";
 
 @Component({
     selector: 'leaflet-marker',
-    template: './marker.html'
+    template: './marker.html',
+    changeDetection: ChangeDetectionStrategy.Default
 })
-export class Marker{
+export class Marker implements DoCheck{
     @Input() onClick: any = undefined;
     @Input() iconUrl: string = '';
     @Input() popup: boolean = false;
     @Input() callback: Function;
     popupContent: string = null;
     @Input() location: LocationModel;
+    _newvotes: number;
+    _oldvotes: number;
     marker: any;
-    @Output() onVote: EventEmitter<VoteDTO> = new EventEmitter<VoteDTO>()
+
+    @Output('onVote') onVote: EventEmitter<VoteDTO> = new EventEmitter<VoteDTO>();
+    @Input()
+    set votes(votes: number){
+        this._newvotes = votes;
+    }
+    get votes():number{
+        return this._newvotes;
+    }
 
 
     constructor(private _navigator: OnsNavigator, private accessibleLocationService : AccessibleLocationService) {
     }
 
     ngOnInit(){
-        this.createMarker();
+        if(this.location.latitude != null && this.location.longitude != null) {
+            this.createMarker();
+        }
+    }
+
+
+    ngDoCheck(): void {
+        if(this._newvotes != this._oldvotes) {
+            this._oldvotes = this._newvotes;
+            //this.location.latitude += 0.02;
+            //this.setPopupContent();
+            //location.reload();
+        }
+
     }
 
     createMarker() {
@@ -77,6 +102,7 @@ export class Marker{
     }
 
     setPopupContent() {
+        console.log("entreiiiiiiiiiiiiiiiiiiiii");
         this.popupContent =
             `<ons-row>
                 <ons-col>
@@ -103,4 +129,7 @@ export class Marker{
             <div><label>Longitude: </label>`+ this.location.longitude + `</div>`
 
     }
+
+
+
 }
