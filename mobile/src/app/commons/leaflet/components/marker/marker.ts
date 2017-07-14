@@ -102,7 +102,6 @@ export class Marker implements DoCheck{
     }
 
     setPopupContent() {
-        console.log("entreiiiiiiiiiiiiiiiiiiiii");
         this.popupContent =
             `<ons-row>
                 <ons-col>

@@ -31,16 +31,10 @@ export class AccessibleLocationRegitryComponent {
         this.getLocationTypes();
     }
 
-    getLocationTypes(): Observable<LocationTypeModel> {
-        let typesRequest = this.service.findAll(ACCESSIBLELOCATION.GETMARKERTYPE);
-        typesRequest.subscribe(
-            data => {
-                if(data) {
-                    this.locationtypes = data;
-                }
-            }
-        );
-        return typesRequest;
+    getLocationTypes(): void {
+        this.service.findAll(ACCESSIBLELOCATION.GETMARKERTYPE).map(result => {
+            this.locationtypes = result.json();
+        }).subscribe();
     }
 
     onClickMap = (ev: any) =>{

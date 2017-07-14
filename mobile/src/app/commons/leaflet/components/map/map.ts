@@ -9,9 +9,9 @@ import { Marker } from '../marker/marker'
     template: require('./map.html')
 })
 export class Map{
-    @Input() lat: number = -3.700852;
-    @Input() lng: number = -38.586988;
-    @Input() zoom: number = 13;
+    @Input() lat: number = -3.723341;
+    @Input() lng: number = -38.536207;
+    @Input() zoom: number = 10;
     @Input() minZoom: number = 5;
     @Input() callback: Function;
     @Input() onemarker: boolean = true;

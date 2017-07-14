@@ -12,6 +12,7 @@ import {ACCESSIBLELOCATION} from "./accessible-location/constants/accessible-loc
 import {LoginComponent} from "./authentication/components/login/login";
 import 'rxjs/Rx';
 import {AuthenticationService} from "./commons/api/services/authentication.service";
+import {AccessibleLocationRegitryComponent} from "./accessible-location/components/accessible-location-registry/accessible-location-registry";
 
 @Component({
     selector: 'ons-page',
@@ -64,4 +65,7 @@ export class DefaultComponent {
         }).subscribe();
     }
 
+    createNewLocation() {
+        this.navigator.element.pushPage(AccessibleLocationRegitryComponent);
+    }
 }
