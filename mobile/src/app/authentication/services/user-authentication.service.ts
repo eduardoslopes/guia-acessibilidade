@@ -20,4 +20,9 @@ export class UserAuthenticationService {
         this.authenticationService.logout();
         //TODO go to main page or Login page
     }
+
+    getLoggedUser(){
+        let user = JSON.parse(localStorage.getItem('currentUser'));
+        return user;
+    }
 }

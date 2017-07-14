@@ -10,8 +10,7 @@ import {AccessibleLocationModule} from './accessible-location/accessible-locatio
 import {MyApp} from './app';
 import {AuthenticationModule} from "./authentication/authentication.module";
 import {BrowserModule} from "@angular/platform-browser";
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import {DefaultComponent} from "./DefaultComponent";
 
 @NgModule({
     imports: [
@@ -23,10 +22,13 @@ import {FormsModule} from "@angular/forms";
         AuthenticationModule
     ],
     declarations: [
-        MyApp,
+        MyApp, DefaultComponent
     ],
     bootstrap: [
-        MyApp,
+        MyApp
+    ],
+    entryComponents: [
+        DefaultComponent
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA,

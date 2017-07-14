@@ -1,50 +1,20 @@
 import {
     Component,
-    ViewChild,
-    Params,
-    OnsNavigator,
-    OnsenModule,
-    NgModule,
-    CUSTOM_ELEMENTS_SCHEMA,
-    ViewContainerRef
 } from 'angular2-onsenui';
-import {LocationModel} from "./accessible-location/models/location";
-import {Observable} from "rxjs";
-import {AccessibleLocationService} from "./accessible-location/services/accessible-location.service";
-import {ACCESSIBLELOCATION} from "./accessible-location/constants/accessible-location.constants";
+
+import {DefaultComponent} from "./DefaultComponent";
 @Component({
   selector: 'app',
-  template: require('./app.html'),
-  styles: [require('./../assets/leaflet.css').toString()],
-  providers: []
+  template: `
+    <ons-template id="app2.html">
+        <ons-navigator>
+            <ons-page>
+                
+            </ons-page>
+        </ons-navigator>
+    </ons-template>
+  `
 })
 export class MyApp {
-
-    locations: LocationModel[] = null;
-    longitude: number = -39.018291;
-    latitude: number = -4.970475;
-    constructor(private accesibleLocationService: AccessibleLocationService) {
-    }
-
-    ngOnInit(): void {
-        this.getLocations();
-    }
-
-    getLocations(): Observable<LocationModel> {
-        let typesRequest = this.accesibleLocationService.findAll(ACCESSIBLELOCATION.MARKER);
-        typesRequest.subscribe(
-            data => {
-                if(data) {
-                    this.locations = data;
-                }
-            }
-        );
-        return typesRequest;
-    }
-
-    push() {
-    }
-
-    pop() {
-    }
+    page = DefaultComponent
 }

@@ -3,6 +3,7 @@
  */
 import { Component} from '@angular/core';
 import {UserAuthenticationService} from "../../services/user-authentication.service";
+import {OnsNavigator} from "angular2-onsenui";
 
 @Component({
     selector: 'ons-page',
@@ -13,7 +14,7 @@ export class LoginComponent {
     username: string = null;
     password: string = null;
 
-    constructor(private userAuthenticationService: UserAuthenticationService) {
+    constructor(private userAuthenticationService: UserAuthenticationService, private navigator: OnsNavigator) {
     }
 
     ngOnInit(): void {}
@@ -21,7 +22,7 @@ export class LoginComponent {
     login(){
        this.userAuthenticationService.login(this.username, this.password).subscribe(data => {
            if(data) {
-                //TODO change page
+               this.navigator.element.popPage();
            }
        });
     }

@@ -2,10 +2,6 @@
  * Created by marcosflavio on 6/15/17.
  */
 import {
-    ViewChild,
-    Params,
-    OnsNavigator,
-    OnsenModule,
     NgModule,
     CUSTOM_ELEMENTS_SCHEMA
 } from 'angular2-onsenui';

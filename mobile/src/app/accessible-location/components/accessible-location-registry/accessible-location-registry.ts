@@ -2,12 +2,13 @@
  * Created by marcosflavio on 6/16/17.
  */
 import {Component, NgZone} from '@angular/core';
-import {LocationModel} from '../../models/location';
 import {AccessibleLocationService} from "../../services/accessible-location.service";
 import {ACCESSIBLELOCATION} from "../../constants/accessible-location.constants";
 import {GuideUserModel} from "../../../commons/models/guideUser";
-import {LocationTypeModel} from "../../models/locationType";
 import {Observable} from "rxjs";
+import {LocationModel} from '../../../commons/models/location';
+import {LocationTypeModel} from "../../../commons/models/locationType";
+
 @Component({
     selector: 'ons-page',
     template: require('./accessible-location-registry.html')
@@ -51,7 +52,11 @@ export class AccessibleLocationRegitryComponent {
     };
 
     createLocation() {
-        let location = new LocationModel(this.name, this.latitude, this.longitude, this.guideUser, this.description, this.markerType);
+        let location = new LocationModel(this.name, this.latitude, this.longitude, this.description);
+        location.markerType = this.markerType;
+        location.user = this.guideUser;
+        location.votes = 0;
+
         this.sendToServer(location);
     }
 

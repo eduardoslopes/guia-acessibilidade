@@ -4,9 +4,9 @@
 export class LocationTypeModel {
     id: number;
     name: string;
+    iconName: string;
 
-    constructor(id: number, name: string){
-        this.id = id;
+    constructor(name: string){
         this.name = name;
     }
 }

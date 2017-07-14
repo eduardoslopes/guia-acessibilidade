@@ -17,24 +17,32 @@ export class HttpService {
     }
 
     get(url: string, options?: RequestOptionsArgs) : Observable<Response> {
-        let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: new Headers({'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(this.authenticationService.user.username + ":" + this.authenticationService.user.password)})};
+        let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: this.getHeaders()};
         url = this.urlRoot + url;
         return this.http.get(url, requestOptionsArgs);
     }
 
     post(url: string, body: any, options?: RequestOptionsArgs) : Observable<Response> {
-        let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: new Headers({'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(this.authenticationService.user.username + ":" + this.authenticationService.user.password)})};
+        let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: this.getHeaders()};
         url = this.urlRoot + url;
         return this.http.post(url, body, requestOptionsArgs);
     }
 
     put(url: string, body: any, options?: RequestOptionsArgs) : Observable<Response> {
-        let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: new Headers({'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + btoa(this.authenticationService.user.username + ":" + this.authenticationService.user.password)})};
+        let requestOptionsArgs: RequestOptionsArgs = options ? options : {headers: this.getHeaders()};
         url = this.urlRoot + url;
         return this.http.put(url, body, requestOptionsArgs);
     }
+
+    getHeaders(){
+        let headers = null;
+        if(this.authenticationService.user) {
+            headers = new Headers({
+                'Authorization': 'Basic ' + btoa(this.authenticationService.user.username + ":" + this.authenticationService.user.password)
+            });
+        }
+        return headers;
+    }
+
 }
 

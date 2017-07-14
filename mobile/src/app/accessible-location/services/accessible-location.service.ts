@@ -17,8 +17,7 @@ export class AccessibleLocationService {
     }
 
     findAll(url: string): Observable<any> {
-        return this.httpService.get(url)
-            .map(res => res.json());
+        return this.httpService.get(url);
     }
 
     findById(url: string, id: number): Observable<any> {
@@ -28,7 +27,6 @@ export class AccessibleLocationService {
     }
 
     update(url: string, T: any): Observable<any> {
-        return this.httpService.put(url, T)
-            .map(result => result.json());
+        return this.httpService.put(url, T);
     }
 }
