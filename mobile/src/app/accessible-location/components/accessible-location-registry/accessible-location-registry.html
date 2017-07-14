@@ -7,26 +7,26 @@
 
     <leaflet-map  [callback]="onClickMap">
     </leaflet-map>
-    <div style="padding: 10px">
+    <div>
         <ons-input placeholder="Nome da nova localização" [(value)]="name" (input)="name = $event.target.value"></ons-input>
     </div>
-    <div style="padding: 10px">
+    <div>
         <ons-input placeholder="Descrição" [(value)]="description" (input)="description = $event.target.value"></ons-input>
     </div>
-    <label class="text-muted" style="margin-left: 10px;">Tipo de Local</label>
+    <label class="text-muted">Tipo de Local</label>
     <div class="row">
         <div class="form-group col-sm-6">
-            <select [(ngModel)]="markerType" class="form-control" style="width: 140px; margin-left: 10px;">
+            <select [(ngModel)]="markerType" class="form-control">
                 <option *ngFor="let loc of locationtypes" [ngValue]="loc">
                     {{loc.name}}
                 </option>
             </select>
         </div>
     </div>
+    <div>
+        <ons-button modifier="large" (click)="createLocation()">
+            Salvar
+        </ons-button>
+    </div>
 
-</div>
-<div>
-    <ons-fab (click)="createLocation()" position="right bottom" >
-        <ons-icon icon="md-plus"></ons-icon>
-    </ons-fab>
 </div>

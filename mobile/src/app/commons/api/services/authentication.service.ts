@@ -20,8 +20,8 @@ export class AuthenticationService {
     constructor(private http: Http) {
         this.urlAuth = this.urlWithouApi + this.urlLogin;
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if(currentUser && currentUser.username && currentUser.password)
-            this.user = new GuideUserModel(currentUser.username, currentUser.password);
+        if(currentUser)
+            this.user = currentUser;
     }
 
     login(username: string, password: string): Observable<boolean> {
