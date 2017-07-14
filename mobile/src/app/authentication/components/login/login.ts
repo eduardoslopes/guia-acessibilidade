@@ -7,7 +7,8 @@ import {OnsNavigator} from "angular2-onsenui";
 
 @Component({
     selector: 'ons-page',
-    template: require('./login.html')
+    template: require('./login.html'),
+    styles: [require('./login.css').toString()]
 })
 export class LoginComponent {
 

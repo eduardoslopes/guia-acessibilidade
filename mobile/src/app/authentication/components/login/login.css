@@ -1,0 +1,12 @@
+ons-input, ons-button{
+    margin: 10px;
+    width: 95%;
+}
+
+.forms{
+    margin-top: 30px;
+}
+
+.form-control{
+    width: 95% !important;
+}
