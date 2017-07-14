@@ -7,7 +7,7 @@
         <google-search> </google-search>
     </div>-->
 
-    <leaflet-map [zoom]="28">
+    <leaflet-map>
         <leaflet-marker *ngFor="let location of locations" [location]="location" [votes]="location.votes" [popup]="true" [callback]="callNewMarkerPage" (onVote)="sendVote($event, vote)"></leaflet-marker>
     </leaflet-map>
   </div>
