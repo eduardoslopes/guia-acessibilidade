@@ -15,6 +15,8 @@ export class Map{
     @Input() minZoom: number = 5;
     @Input() callback: Function;
     @Input() onemarker: boolean = true;
+    @Input() width: string = '100%';
+    @Input() height: string = '100%';
 
     @ViewChild('map')
     mapElement;
