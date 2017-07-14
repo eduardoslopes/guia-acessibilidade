@@ -124,8 +124,7 @@ export class Marker implements DoCheck{
                     <div *ngFor="let acessibilityType of location.accessibilityTypes"></div>
                 </ons-col>
             </ons-row>
-            <div><label>Latitude: </label>` + this.location.latitude + `</div>
-            <div><label>Longitude: </label>`+ this.location.longitude + `</div>`
+            <div><label>Endereço: </label>` + this.location.completeAddress + `</div>`
 
     }
 

@@ -15,6 +15,7 @@ export class LocationModel {
     markerType: LocationTypeModel;
     user: GuideUserModel;
     accessibilityTypes: AccessibilityTypeModel[];
+    completeAddress: string;
 
     constructor(name: string, latitude: number,
                 longitude: number, description: string){
